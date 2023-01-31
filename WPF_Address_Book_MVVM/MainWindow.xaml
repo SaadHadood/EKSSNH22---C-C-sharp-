@@ -10,7 +10,7 @@
         
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="Contacts" Height="500" Width="860">
+        Title="Contacts" Height="650" Width="890">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />

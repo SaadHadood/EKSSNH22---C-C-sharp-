@@ -38,7 +38,7 @@
 
             </StackPanel>
 
-            <Button x:Name="btn_Add" Click="Btn_Add_Click" Grid.Row="1" VerticalAlignment="Bottom" Content="LÄGG TILL" Padding="5" Background="Beige" />
+            <Button x:Name="btn_Add" Click="Btn_Add_Click" Grid.Row="1" VerticalAlignment="Bottom" Content="LÄGG TILL" Padding="5" Background="LightGreen" />
 
         </Grid>
     </Grid>

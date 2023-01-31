@@ -14,8 +14,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="Contacts" FontSize="24" Margin="0 0 0 20" />
-
+        <TextBlock Grid.Row="0" Text="Tryck på personen som du vill ändra. Fyll i nytt information och sedan tryck på Spara eller Edit" FontSize="12" Margin="0 0 0 20" FontWeight="Bold" HorizontalAlignment="Center" />
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
@@ -37,7 +36,7 @@
                             </StackPanel>
                             
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Button x:Name="btn_Edit" Click="btn_Edit_Click"  Content="Edit" Width="50" Margin="5 0 0 0" />
+                                <Button x:Name="btn_Edit" Click="btn_Edit_Click"  Content="Edit" Width="50" Margin="5 0 0 0" Background="LightGreen" />
                             </StackPanel>
 
                         </Grid>
@@ -46,7 +45,6 @@
             </ListView>
 
             <StackPanel Grid.Column="1">
-                
                 <TextBlock Text="{Binding SelectedContact.DisplayName}" Padding="1" Margin="130 0 0 0" FontSize="18"  Foreground="Purple" />
                 <TextBlock Text="{Binding SelectedContact.Email}" Padding="1" Margin="130 0 0 0" FontSize="18"  Foreground="Purple"  />
                 <TextBlock Text="{Binding SelectedContact.Phone}" Padding="1" Margin="130 0 0 0" FontSize="18"  Foreground="Purple" />

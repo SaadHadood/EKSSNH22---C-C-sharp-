@@ -50,7 +50,7 @@ namespace WPF_Address_Book_MVVM.MVVM.Views
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
             string message = "Vill du uppdatera kontakten?";
-            string title = "Ta bort";
+            string title = "Ändra";
 
             var selectedContact = lv_Contacts_Edit.SelectedItem as ContactPersonModel;
             MessageBoxButton buttons = MessageBoxButton.YesNo;
