@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="WPF_Address_Book_MVVM.MVVM.Views.EditContactView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_Address_Book_MVVM.MVVM.Views"
+             xmlns:models="clr-namespace:WPF_Address_Book_MVVM.MVVM.Models"
+             xmlns:viewmodels="clr-namespace:WPF_Address_Book_MVVM.MVVM.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"  />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Contacts" FontSize="24" Margin="0 0 0 20" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <ListView x:Name="lv_Contacts_Edit" Background="Transparent" ItemsSource="{Binding Contacts}" HorizontalContentAlignment="Stretch" SelectionMode="Single" SelectedItem="{Binding SelectedContact}">
+                <ListView.ItemTemplate>
+                    <DataTemplate DataType="{x:Type models:ContactPersonModel}">
+                        <Grid Margin="0 5 0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0" HorizontalAlignment="Left">
+                                <TextBlock Text="{Binding DisplayName}" />
+                                <TextBlock Text="{Binding Email}" />
+                            </StackPanel>
+                            
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                <Button x:Name="btn_Edit" Click="btn_Edit_Click"  Content="Edit" Width="50" Margin="5 0 0 0" />
+                            </StackPanel>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackPanel Grid.Column="1">
+                
+                <TextBlock Text="{Binding SelectedContact.DisplayName}" Padding="1" Margin="130 0 0 0" FontSize="18"  Foreground="Purple" />
+                <TextBlock Text="{Binding SelectedContact.Email}" Padding="1" Margin="130 0 0 0" FontSize="18"  Foreground="Purple"  />
+                <TextBlock Text="{Binding SelectedContact.Phone}" Padding="1" Margin="130 0 0 0" FontSize="18"  Foreground="Purple" />
+                <TextBlock Text="{Binding SelectedContact.Address}" Padding="1" Margin="130 0 0 0" FontSize="18" Foreground="Purple" />
+
+                <TextBlock Text="Förnamn" Margin="10 0 0 5" />
+                <TextBox x:Name="tb_FirstName" Padding="3" Margin="10 0 0 10" />
+
+                <TextBlock Text="Efternamn" Margin="10 0 0 5"  />
+                <TextBox Name="tb_LastName" Padding="3" Margin="10 0 0 10" />
+
+                <TextBlock Text="E-postadress" Margin="10 0 0 5" />
+                <TextBox Name="tb_Email" Padding="3" Margin="10 0 0 10" />
+
+                <TextBlock Text="Telfonnummer" Margin="10 0 0 5"  />
+                <TextBox Name="tb_Phone" Padding="3" Margin="10 0 0 10"/>
+
+                <TextBlock Text="Address" Margin="10 0 0 5"  />
+                <TextBox Name="tb_Address" Padding="3" Margin="10 0 0 20"/>
+
+                <Button x:Name="btn_Edit" Click="btn_Edit_Click"  Content="Spara" Width="350" Height="30" Background="LightGreen"/>
+                
+            </StackPanel>
+
+        </Grid>
+    </Grid>
+</UserControl>

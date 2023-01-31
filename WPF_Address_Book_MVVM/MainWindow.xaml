@@ -1,0 +1,41 @@
+﻿<Window x:Class="WPF_Address_Book_MVVM.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Address_Book_MVVM"
+        xmlns:viewmodels="clr-namespace:WPF_Address_Book_MVVM.MVVM.ViewModels"
+        xmlns:views="clr-namespace:WPF_Address_Book_MVVM.MVVM.Views"
+        d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+        
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Contacts" Height="500" Width="860">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Command="{Binding GoToContactsCommand}" Content="All"  Width="80" Padding="20 5" Margin="10" BorderThickness="0" Background="LightBlue" />
+            <Button Command="{Binding GoToAddContactsCommand}" Content="Add"  Width="80" Padding="20 5"  Margin=" 10" BorderThickness="0" Background="LightBlue"/>
+            <Button Command="{Binding GoToEditContactsCommand}" Content="Edit"  Width="80" Padding="20 5" Margin="10" BorderThickness="0" Background="LightBlue" />
+        </StackPanel>
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:ContactsViewModel}">
+                    <views:ContactsView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:AddContactModel}">
+                    <views:AddContactView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewmodels:EditContactModel}">
+                    <views:EditContactView />
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+        
+    </Grid>
+</Window>

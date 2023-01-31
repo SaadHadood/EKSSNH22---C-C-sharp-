@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="WPF_Address_Book_MVVM.MVVM.Views.AddContactView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:models="clr-namespace:WPF_Address_Book_MVVM.MVVM.Models"
+             xmlns:local="clr-namespace:WPF_Address_Book_MVVM.MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- FORM -->
+        <Grid Grid.Column="0" Margin="80 0 80 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Lägg till en kontaktperson" FontSize="22" FontWeight="Medium" Padding="3" Margin="0 0 0 30" TextAlignment="Center" />
+                <TextBlock Text="Förnamn" />
+                <TextBox x:Name="tb_FirstName" Padding="3" Margin="0 0 0 10" />
+
+                <TextBlock Text="Efternamn" />
+                <TextBox Name="tb_LastName" Padding="3" Margin="0 0 0 10" />
+
+                <TextBlock Text="E-postadress" />
+                <TextBox Name="tb_Email" Padding="3" Margin="0 0 0 10" />
+
+                <TextBlock Text="Telfonnummer" />
+                <TextBox Name="tb_Phone" Padding="3" Margin="0 0 0 10"/>
+
+                <TextBlock Text="Address" />
+                <TextBox Name="tb_Address" Padding="3" Margin="0 0 0 50"/>
+
+            </StackPanel>
+
+            <Button x:Name="btn_Add" Click="Btn_Add_Click" Grid.Row="1" VerticalAlignment="Bottom" Content="LÄGG TILL" Padding="5" Background="Beige" />
+
+        </Grid>
+    </Grid>
+</UserControl>
