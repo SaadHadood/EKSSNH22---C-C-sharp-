@@ -1,23 +1,12 @@
 ﻿using _02_WPF.Services;
 using DevExpress.Utils.CommonDialogs.Internal;
-using Microsoft.Azure.KeyVault.Models;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WPF_Address_Book_MVVM.MVVM.Models;
+using WPF_Address_Book_MVVM.Services;
 
 namespace WPF_Address_Book_MVVM.MVVM.Views
 {
@@ -64,7 +53,9 @@ namespace WPF_Address_Book_MVVM.MVVM.Views
                     selectedContact.Email = tb_Email.Text;
                     selectedContact.Phone = tb_Phone.Text;
                     selectedContact.Address = tb_Address.Text;
-                    fileService.Save(JsonConvert.SerializeObject(contacts));
+
+                    ContactService.Save(selectedContact);
+
                     MessageBox.Show("Kontakten har uppdateras");
                 }
 

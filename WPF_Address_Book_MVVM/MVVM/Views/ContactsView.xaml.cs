@@ -1,9 +1,4 @@
-﻿using _02_WPF.Services;
-using DevExpress.Utils.CommonDialogs.Internal;
-using Microsoft.Azure.KeyVault.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.ObjectModel;
+﻿using DevExpress.Utils.CommonDialogs.Internal;
 using System.Windows;
 using System.Windows.Controls;
 using WPF_Address_Book_MVVM.MVVM.Models;
@@ -17,27 +12,11 @@ namespace WPF_Address_Book_MVVM.MVVM.Views
     ///
     public partial class ContactsView : UserControl
     {
-        //private ObservableCollection<ContactPersonModel> contacts = new ObservableCollection<ContactPersonModel>();
-        //private static FileService fileService = new FileService($@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json");
         public ContactsView()
         {
             InitializeComponent();
 
-            //PopulateContactList();
         }
-
-
-        //private void PopulateContactList()
-        //{
-        //    try
-        //    {
-        //        var items = JsonConvert.DeserializeObject<ObservableCollection<ContactPersonModel>>(fileService.Read());
-        //        if (items != null)
-        //            contacts = items;
-        //    }
-        //    catch { }
-        //}
-
 
 
         private void btn_Remove_Click(object sender, RoutedEventArgs e)

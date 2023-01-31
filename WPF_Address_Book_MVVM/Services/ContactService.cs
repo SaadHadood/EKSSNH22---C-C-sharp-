@@ -1,12 +1,7 @@
 ﻿using _02_WPF.Services;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using WPF_Address_Book_MVVM.MVVM.Models;
 
 namespace WPF_Address_Book_MVVM.Services
@@ -36,6 +31,12 @@ namespace WPF_Address_Book_MVVM.Services
         public static void Add(ContactPersonModel model)
         {
             contacts.Add(model);
+            fileService.Save(JsonConvert.SerializeObject(contacts));
+        }
+
+        public static void Save(ContactPersonModel model)
+        {
+            contacts.Contains(model);
             fileService.Save(JsonConvert.SerializeObject(contacts));
         }
 

@@ -5,13 +5,11 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "00_ConsoleApp_Address_Book", "00_ConsoleApp_Address_Book\00_ConsoleApp_Address_Book.csproj", "{18AFE215-1206-4B80-B8F5-167C4C37BF48}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_Address_Book", "WPF_Address_Book\WPF_Address_Book.csproj", "{8288D60B-44BD-47E3-B1A2-B47880A50128}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF_Address_Book_MVVM", "WPF_Address_Book_MVVM\WPF_Address_Book_MVVM.csproj", "{4B0F3A1F-95DA-4425-805B-616DB936B2DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp.Tests__xUnit", "ConsoleApp.Tests__xUnit\ConsoleApp.Tests__xUnit.csproj", "{590ACFB4-8E79-44B8-A850-8B223C71253D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp.Tests__xUnit", "ConsoleApp.Tests__xUnit\ConsoleApp.Tests__xUnit.csproj", "{590ACFB4-8E79-44B8-A850-8B223C71253D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp.Tests", "WpfApp.Tests\WpfApp.Tests.csproj", "{777795B0-4839-4BB8-9641-3F814F36CD8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfApp.Tests", "WpfApp.Tests\WpfApp.Tests.csproj", "{777795B0-4839-4BB8-9641-3F814F36CD8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{18AFE215-1206-4B80-B8F5-167C4C37BF48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18AFE215-1206-4B80-B8F5-167C4C37BF48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18AFE215-1206-4B80-B8F5-167C4C37BF48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8288D60B-44BD-47E3-B1A2-B47880A50128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8288D60B-44BD-47E3-B1A2-B47880A50128}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8288D60B-44BD-47E3-B1A2-B47880A50128}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8288D60B-44BD-47E3-B1A2-B47880A50128}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4B0F3A1F-95DA-4425-805B-616DB936B2DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4B0F3A1F-95DA-4425-805B-616DB936B2DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B0F3A1F-95DA-4425-805B-616DB936B2DD}.Release|Any CPU.ActiveCfg = Release|Any CPU

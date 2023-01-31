@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using WPF_Address_Book_MVVM.MVVM.Models;
+﻿using System.IO;
+
 
 namespace _02_WPF.Services
 {

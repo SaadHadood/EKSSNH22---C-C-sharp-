@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using WPF_Address_Book_MVVM.MVVM.Models;
+using WPF_Address_Book_MVVM.Services;
 
 namespace WPF_Address_Book_MVVM.MVVM.Views
 {
@@ -20,7 +21,6 @@ namespace WPF_Address_Book_MVVM.MVVM.Views
         public AddContactView()
         {
             InitializeComponent();
-
             PopulateContactList();
         }
 
@@ -37,7 +37,7 @@ namespace WPF_Address_Book_MVVM.MVVM.Views
 
         private void Btn_Add_Click(object sender, RoutedEventArgs e)        //knapp metod. lägga till.
         {
-            contacts.Add(new ContactPersonModel
+            ContactService.Add(new ContactPersonModel
             {
                 FirstName = tb_FirstName.Text,
                 LastName = tb_LastName.Text,
@@ -45,8 +45,6 @@ namespace WPF_Address_Book_MVVM.MVVM.Views
                 Phone = tb_Phone.Text,
                 Address = tb_Address.Text
             });
-
-            fileService.Save(JsonConvert.SerializeObject(contacts));          //sparar listan varje gång man trycker på knappen.
 
             Clearform();
         }
