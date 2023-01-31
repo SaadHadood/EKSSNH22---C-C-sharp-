@@ -82,38 +82,75 @@ public class Menu
     private void OptionThree()
     {
         Console.Clear();
-        Console.Write("Ange förnamn på personen du söker efter: ");
+        foreach (var contact in contacts)
+        {
+            Console.WriteLine($"{contact.FirstName} {contact.LastName} <{contact.Email}>");
+        }
+        Console.Write("\nAnge förnamn på personen du söker efter: ");
         var contactName = Console.ReadLine();
         Console.WriteLine("");
 
-        var foundName = contacts.Find(contact => contact.FirstName == contactName);
-        Console.WriteLine("Förnamn: " + foundName!.FirstName);
-        Console.WriteLine("Efternamn: " + foundName!.LastName);
-        Console.WriteLine("E-postadress: " + foundName!.Email);
-        Console.WriteLine("Telefonnummer: " + foundName!.Phone);
-        Console.WriteLine("Adress: " + foundName!.Address);
+        if (contactName !=null && contactName != "") 
+        {
+            string capitalChar = capitalFirstLetter(contactName);
+            var foundName = contacts.Find(contact => contact.FirstName.ToLower() == contactName.ToLower());
 
-        Console.WriteLine("______________________________________________________________________");
-        Console.WriteLine("Tryck på valfri tangent för att komma tillbaka till huvudmenyn");
+            if (foundName != null)
+            {
+                Console.WriteLine("Förnamn: " + foundName!.FirstName);
+                Console.WriteLine("Efternamn: " + foundName!.LastName);
+                Console.WriteLine("E-postadress: " + foundName!.Email);
+                Console.WriteLine("Telefonnummer: " + foundName!.Phone);
+                Console.WriteLine("Adress: " + foundName!.Address);
+
+                Console.WriteLine("______________________________________________________________________");
+                Console.WriteLine("Tryck på valfri tangent för att komma tillbaka till huvudmenyn");
+            }
+            else
+            {
+                Console.WriteLine($"\nKunde inte hitta kontakt med namnet {capitalChar} i listan");
+            }
+        } 
+        
         Console.ReadKey();
     }
 
     private void OptionFour()
     {
         Console.Clear();
-        Console.Write("Ange E-postadress på personen du vill ta bort: ");
+
+        foreach(var contact in contacts)
+        {
+            Console.WriteLine($"{ contact.FirstName } {contact.LastName} <{contact.Email}>");
+        }
+
+        Console.Write("\nAnge E-postadress på personen du vill ta bort: ");
         var result = Console.ReadLine();
         Console.Write("Vill du verkligen ta bort personen med E-postadress: " + result + " " + "Från listan? (y/n): ");
         var answer = Console.ReadLine();
 
         if (answer == "y")
         {
-            contacts.RemoveAll(contact => contact.Email == result);
-            Console.WriteLine("");
-            Console.WriteLine("Personen har tagist bort från listan.");
-            Console.WriteLine("______________________________________________________________________");
-            file.Save(FilePath, JsonConvert.SerializeObject(contacts));
+            if (result != null && result !="")
+            {
+                string capitalChar = capitalFirstLetter(result);
+                var foundEmail = contacts.Find(contact => contact.Email.ToLower() == result.ToLower());
+
+                if (foundEmail != null)
+                {
+                    contacts.Remove(foundEmail);
+                    Console.WriteLine("");
+                    Console.WriteLine("Personen har tagist bort från listan.");
+                    Console.WriteLine("______________________________________________________________________");
+                    file.Save(FilePath, JsonConvert.SerializeObject(contacts));
+                }
+                else
+                {
+                    Console.WriteLine($"\nKunde inte hitta kontakt med E-postadress {capitalChar} i listan");
+                }
+            }
         }
+
         else if (answer == "n") 
         {
             Console.WriteLine("");
@@ -121,7 +158,17 @@ public class Menu
             Console.WriteLine("______________________________________________________________________");
         }
 
-        Console.WriteLine("Tryck på valfri tangent för att komma tillbaka till huvudmenyn");
+        Console.WriteLine("\nTryck på valfri tangent för att komma tillbaka till huvudmenyn");
         Console.ReadKey();
     }
+
+
+
+
+    private string capitalFirstLetter (string v)
+    {
+        string firstLetter = char.ToUpper(v.First()) + v.Substring(1).ToLower();
+        return firstLetter;
+    }
+
 }
